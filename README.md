@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src="./docs/public/assets/react-forage.png" alt="react-forage" />
+  <img src="./docs/public/assets/react-forage.png" width="200" alt="react-forage" />
 </p>
 
 <h1 align='center'>React Forage</h1>
