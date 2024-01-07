@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::selection {
+  /* @apply bg-red-600 bg-opacity-60  dark:bg-red-700 dark:bg-opacity-30; */
+  background-color: hsl(
+    var(--nextra-primary-hue) var(--nextra-primary-saturation) 66%/0.1
+  );
+}
+
+:root {
+  --code-block-bg: #f6f6f6;
+}
+:root.dark {
+  --code-block-bg: #202020;
+}
+
+.nextra-nav-container-blur {
+  box-shadow: none !important;
+}
+
+.nextra-code-block > pre {
+  background-color: var(--code-block-bg) !important;
+}
+
+.luster {
+  -webkit-mask-image: -webkit-linear-gradient(
+    30deg,
+    black 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    black 75%
+  );
+  mask-image: -webkit-linear-gradient(
+    30deg,
+    black 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    black 75%
+  );
+  mask-image: -moz-linear-gradient(
+    30deg,
+    black 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    black 75%
+  );
+  mask-image: -o-linear-gradient(
+    30deg,
+    black 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    black 75%
+  );
+  mask-image: linear-gradient(
+    60deg,
+    black 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    black 75%
+  );
+  -webkit-mask-size: 400%;
+  mask-size: 400%;
+  -webkit-mask-position: 0%;
+  mask-position: 0%;
+}
+
+.luster:hover {
+  -webkit-mask-position: 100%;
+  mask-position: 100%;
+  -webkit-transition:
+    mask-position 1s ease,
+    -webkit-mask-position 1s ease;
+  -moz-transition:
+    mask-position 1s ease,
+    -webkit-mask-position 1s ease;
+  -o-transition:
+    mask-position 1s ease,
+    -webkit-mask-position 1s ease;
+  transition:
+    mask-position 1s ease,
+    -webkit-mask-position 1s ease;
+}
+
+.headline {
+  font-size: min(4.375rem, max(8vw, 2.5rem));
+  line-height: 1.4;
+  background-image: linear-gradient(146deg, #000, #757a7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: none;
+}
+
+.dark .headline {
+  background-image: linear-gradient(146deg, #fff, #757a7d);
+}
+
+.aperture {
+  --size: min(75vw, 400px);
+  --top: 0;
+  --left: calc(-0.5 * var(--size));
+  --blur: calc(0.5 * var(--size));
+  --opacity: 0.8;
+  --bg-color: #888;
+  --background: #000;
+
+  position: absolute;
+  z-index: -1;
+  border-radius: calc(0.5 * var(--size));
+  background-color: var(--bg-color);
+  background: radial-gradient(
+    circle at center,
+    var(--bg-color) 0,
+    var(--background) 100%
+  );
+  width: var(--size);
+  height: var(--size);
+  top: 15%;
+  left: 50%;
+  filter: blur(var(--blur)) opacity(var(--opacity));
+  transform: translate(-50%, 0);
+  user-select: none;
+}
+
+@media screen and (min--moz-device-pixel-ratio: 1) {
+  .aperture {
+    --opacity: 0.4;
+  }
+}

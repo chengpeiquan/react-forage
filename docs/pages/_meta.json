@@ -1,0 +1,26 @@
+{
+  "index": {
+    "title": "Home",
+    "theme": {
+      "layout": "full",
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": false,
+      "pagination": false
+    },
+    "display": "hidden"
+  },
+  "changelog": {
+    "title": "Release Notes",
+    "type": "page",
+    "href": "https://github.com/chengpeiquan/react-forage/blob/main/CHANGELOG.md",
+    "newWindow": true
+  },
+  "api": {
+    "title": "LocalForage API",
+    "type": "page",
+    "href": "https://localforage.github.io/localForage/",
+    "newWindow": true
+  }
+}
