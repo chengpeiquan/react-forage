@@ -9,6 +9,7 @@
   "dependencies": {
     "@bassist/utils": "^0.14.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@web-analytics/core": "^0.1.5",
     "class-variance-authority": "^0.7.0",
     "lucide-react": "^0.307.0",
     "next": "^14.0.3",
