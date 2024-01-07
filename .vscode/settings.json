@@ -1,0 +1,13 @@
+{
+  "eslint.experimental.useFlatConfig": true,
+  "cSpell.words": [
+    "clsx",
+    "iife",
+    "INDEXEDDB",
+    "localforage",
+    "LOCALSTORAGE",
+    "nextra",
+    "tsup",
+    "WEBSQL"
+  ]
+}

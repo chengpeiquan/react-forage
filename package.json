@@ -1,0 +1,83 @@
+{
+  "name": "react-forage",
+  "version": "0.1.0",
+  "description": "LocalForage Hooks and Providers for React.",
+  "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
+  "license": "MIT",
+  "homepage": "https://forage.cpq.dev",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "dev": "pnpm -F docs dev",
+    "build": "run-s build:*",
+    "build:lib": "tsup",
+    "build:docs": "pnpm -F docs build",
+    "gen:changelog": "tsx ./scripts/generate-changelog.mts",
+    "gen:release": "tsx ./scripts/generate-release.mts",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "up": "npx npm-check-updates -u",
+    "backup": "git add . && git commit -m \"chore: backup\" && git push",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chengpeiquan/react-forage.git"
+  },
+  "keywords": [
+    "react",
+    "react-forage",
+    "react forage",
+    "react storage",
+    "react localForage",
+    "react localStorage",
+    "react sessionStorage",
+    "react WebSQL",
+    "react IndexedDB",
+    "localForage"
+  ],
+  "dependencies": {
+    "@bassist/utils": "^0.14.0",
+    "localforage": "^1.10.0",
+    "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@bassist/commit": "^0.1.0",
+    "@bassist/eslint": "^0.5.0",
+    "@bassist/tsconfig": "^0.1.1",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.47",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.1",
+    "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}
