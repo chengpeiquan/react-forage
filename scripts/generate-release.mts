@@ -4,7 +4,7 @@ import pkg from '../package.json'
 async function run() {
   const { version } = pkg
 
-  const notes = `Please refer to [CHANGELOG](https://github.com/remanufacturing/react-truncate/blob/main/CHANGELOG.md) for details.`
+  const notes = `Please refer to [CHANGELOG](https://github.com/chengpeiquan/react-forage/blob/main/CHANGELOG.md) for details.`
 
   const releaseArgs = [
     `git tag -a v${version} -m "v${version}"`,
