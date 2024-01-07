@@ -1,6 +1,10 @@
-# react-forage
+<p align='center'>
+  <img src="./docs/public/assets/react-forage.png" alt="react-forage" />
+</p>
 
-<p>
+<h1 align='center'>React Forage</h1>
+
+<p align='center'>
   <a href='https://www.npmjs.com/package/react-forage'>
     <img src="https://img.shields.io/npm/v/react-forage?color=f43f5e&label=npm" />
   </a>
@@ -14,6 +18,8 @@
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/chengpeiquan/react-forage?style=social" />
   </a>
 </p>
+<br>
+<br>
 
 LocalForage Hooks and Providers for React.
 

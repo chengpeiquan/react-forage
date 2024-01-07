@@ -4,10 +4,8 @@ import { useConfig } from 'nextra-theme-docs'
 import { WEBSITE_HOST, WEBSITE_ORIGIN, WEBSITE_TITLE } from '../constants'
 
 export const Head: React.FC = () => {
-  const { route, ...others } = useRouter()
+  const { route } = useRouter()
   const { title } = useConfig()
-
-  console.log(route, others)
 
   const socialCard =
     route === '/' || !title

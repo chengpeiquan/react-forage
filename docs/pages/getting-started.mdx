@@ -1,0 +1,51 @@
+# Getting Started
+
+The idea and part of the source code come from `useLocalStorageState` of [ahooks](https://ahooks.js.org/hooks/use-local-storage-state/) , and the usage is very similar. If you like the usage of ahooks, you will get started quickly.
+
+## Usage
+
+```tsx
+import { LocalForageProvider, useLocalForageState } from 'react-forage'
+
+const BasicExample = () => {
+  const [message, setMessage] = useLocalForageState<string | undefined>(
+    'use-local-forage-state-demo-1',
+    {
+      defaultValue: defaultMessage,
+    },
+  )
+
+  return (
+    <>
+      <Input
+        value={message || ''}
+        placeholder="Please enter some words..."
+        onChange={(e) => setMessage(e.target.value)}
+      />
+
+      <Button className="mx-2" onClick={() => setMessage(defaultMessage)}>
+        Reset
+      </Button>
+
+      <Button onClick={() => setMessage(undefined)}>Clear</Button>
+    </>
+  )
+}
+
+interface ContainerProps {
+  children: React.ReactNode
+}
+
+const Container: React.FC<ContainerProps> = ({ children }) => {
+  return (
+    <LocalForageProvider
+      config={{
+        name: 'react-forage-website',
+        storeName: 'examples',
+      }}
+    >
+      <div className="max-w-screen-md mx-auto">{children}</div>
+    </LocalForageProvider>
+  )
+}
+```

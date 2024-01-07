@@ -11,13 +11,25 @@
     },
     "display": "hidden"
   },
+  "getting-started": {
+    "title": "Getting Started",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "api-reference": {
+    "title": "API Reference",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
   "changelog": {
     "title": "Release Notes",
     "type": "page",
     "href": "https://github.com/chengpeiquan/react-forage/blob/main/CHANGELOG.md",
     "newWindow": true
   },
-  "api": {
+  "localforage-api": {
     "title": "LocalForage API",
     "type": "page",
     "href": "https://localforage.github.io/localForage/",

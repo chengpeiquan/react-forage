@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 import { LocalForageProvider, useLocalForageState } from 'react-forage'
 import { randomString } from '@bassist/utils'
 import { Button } from './ui/button'
@@ -6,6 +7,11 @@ import { Input } from './ui/input'
 
 const defaultMessage = 'Hello~'
 const defaultArray = ['a', 'e', 'i', 'o', 'u']
+
+const cls = {
+  wrapper: clsx('flex items-center gap-2'),
+  colWrapper: clsx('flex flex-col gap-2'),
+}
 
 export const SerializerExample = () => {
   const [message, setMessage] = useLocalForageState<string | undefined>(
@@ -18,7 +24,7 @@ export const SerializerExample = () => {
   )
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={cls.wrapper}>
       <Input
         value={message || ''}
         placeholder="Please enter some words..."
@@ -45,21 +51,20 @@ export const ArrayExample = () => {
   )
 
   return (
-    <div className="flex flex-col gap-2">
-      <p>{value?.join('-')}</p>
-
+    <div className={cls.colWrapper}>
       <div className="flex items-center gap-2">
         <Button
           variant="outline"
           onClick={() => setValue([...value, randomString().slice(-1)])}
         >
-          push random
+          Push Random
         </Button>
 
         <Button variant="outline" onClick={() => setValue(defaultArray)}>
           reset
         </Button>
       </div>
+      <p>{value?.join('-')}</p>
     </div>
   )
 }
@@ -73,7 +78,7 @@ export const BasicExample = () => {
   )
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={cls.wrapper}>
       <Input
         value={message || ''}
         placeholder="Please enter some words..."
@@ -108,6 +113,15 @@ export const Container: React.FC<ContainerProps> = ({ children }) => {
   )
 }
 
-export const ExampleContainer: React.FC<ContainerProps> = ({ children }) => {
-  return <div className="flex flex-col gap-6 w-full">{children}</div>
+export const ExampleList: React.FC<ContainerProps> = ({ children }) => {
+  return <div className="flex flex-col w-full">{children}</div>
+}
+
+export const ExampleWrapper: React.FC<ContainerProps> = ({ children }) => {
+  const cls = clsx(
+    'flex flex-col gap-3 w-full box-border py-3 px-4 mt-3 rounded-xl',
+    'bg-[var(--code-block-bg)]',
+  )
+
+  return <div className={cls}>{children}</div>
 }
