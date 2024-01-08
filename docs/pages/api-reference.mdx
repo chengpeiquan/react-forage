@@ -1,3 +1,45 @@
 # API Reference
 
-Coming soon...
+During the development process, all APIs can be viewed in the code editor (e.g. VS Code) by going to their type declaration to view the specific declaration.
+
+## LocalForageProvider
+
+By default, calling [useLocalForageState](#uselocalforagestate) hook directly will use the default configuration and instance of localForage.
+
+If you want to specify the configuration and create the specified instance, you can use LocalForageProvider to wrap the business component.
+
+### config
+
+Pass your localForage configuration, which will be used to create localForage instances and memoize them in the context.
+
+For localForage supported configurations, please consult the official documentation.
+
+See: [Settings API Config](https://localforage.github.io/localForage/#settings-api-config)
+
+### example
+
+```tsx
+// ./components/Container.tsx
+import React from 'react'
+
+interface ContainerProps {
+  children: React.ReactNode
+}
+
+const Container: React.FC<ContainerProps> = ({ children }) => {
+  return (
+    <LocalForageProvider
+      config={{
+        name: 'react-forage-website',
+        storeName: 'examples',
+      }}
+    >
+      <div className="max-w-screen-md mx-auto">{children}</div>
+    </LocalForageProvider>
+  )
+}
+```
+
+## useLocalForageState
+
+Comming soon ...
