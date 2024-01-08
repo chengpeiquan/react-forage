@@ -15,7 +15,10 @@ export interface Options<T> {
   onError?: (error: unknown) => void
 }
 
-export function useLocalForageState<T>(key: string, options: Options<T> = {}) {
+export const useLocalForageState = <T>(
+  key: string,
+  options: Options<T> = {},
+) => {
   const { localforage } = useLocalForageContext()
 
   const {
