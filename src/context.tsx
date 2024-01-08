@@ -37,7 +37,7 @@ export const LocalForageProvider: React.FC<LocalForageProviderProps> = ({
   )
 }
 
-export function useLocalForageContext() {
+export const useLocalForageContext = () => {
   const ctx = useContext(LocalForageContext)
   return ctx
 }
