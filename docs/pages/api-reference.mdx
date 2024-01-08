@@ -1,6 +1,79 @@
+import { LinkButton } from '../components/Interactive'
+
 # API Reference
 
 During the development process, all APIs can be viewed in the code editor (e.g. VS Code) by going to their type declaration to view the specific declaration.
+
+## useLocalForageState
+
+The protagonist of this package, it is very similar to [useState](https://react.dev/reference/react/useState) usage, Please use it together with [LocalForageProvider](#localforageprovider) .
+
+```tsx
+// Normal state variable
+const [state, setState] = useState(defaultValue)
+
+// State variables with storage behavior
+const [state, setState] = useLocalForageState('storage-key', { defaultValue })
+```
+
+If you want to delete record from store, you can use `setState()` or `setState(undefined)` .
+
+### Type Declarations
+
+```ts
+declare const useLocalForageState: <T>(
+  key: string,
+  options?: Options<T>,
+) => readonly [T | undefined, (value?: SetState<T> | undefined) => void]
+
+type SetStateValue<S> = (prevState?: S) => S
+
+type SetState<S> = S | SetStateValue<S>
+
+type GetDefaultValue<T> = () => T
+
+interface Options<T> {
+  defaultValue?: T | GetDefaultValue<T>
+  serializer?: (value: T) => string
+  deserializer?: (value: string) => T
+  onError?: (error: unknown) => void
+}
+```
+
+### Examples
+
+```tsx
+import React from 'react'
+
+const defaultMessage = 'Hello~'
+
+const BasicExample: React.FC = () => {
+  const [message, setMessage] = useLocalForageState<string | undefined>(
+    'use-local-forage-state-demo-1',
+    {
+      defaultValue: defaultMessage,
+    },
+  )
+
+  return (
+    <div className={cls.wrapper}>
+      <Input
+        value={message || ''}
+        placeholder="Please enter some words..."
+        onChange={(e) => setMessage(e.target.value)}
+      />
+
+      <Button variant="outline" onClick={() => setMessage(defaultMessage)}>
+        Reset
+      </Button>
+
+      <Button variant="outline" onClick={() => setMessage(undefined)}>
+        Clear
+      </Button>
+    </div>
+  )
+}
+```
 
 ## LocalForageProvider
 
@@ -8,18 +81,52 @@ By default, calling [useLocalForageState](#uselocalforagestate) hook directly wi
 
 If you want to specify the configuration and create the specified instance, you can use LocalForageProvider to wrap the business component.
 
-### config
+### Configuration
 
 Pass your localForage configuration, which will be used to create localForage instances and memoize them in the context.
 
 For localForage supported configurations, please consult the official documentation.
 
-See: [Settings API Config](https://localforage.github.io/localForage/#settings-api-config)
+<LinkButton
+  secondary
+  href="https://localforage.github.io/localForage/#settings-api-config"
+  target="_blank"
+>
+  Settings API Config - localForage API
+</LinkButton>
 
-### example
+### Type Declarations
+
+```ts
+declare const LocalForageProvider: React.FC<LocalForageProviderProps>
+
+interface LocalForageProviderProps {
+  config?: LocalForageOptions
+  children: React.ReactNode
+}
+
+enum LocalForageDriverType {
+  IndexedDB = 'asyncStorage',
+  WebSQL = 'localStorageWrapper',
+  LocalStorage = 'webSQLStorage',
+}
+
+interface LocalForageDbInstanceOptions {
+  name?: string
+  storeName?: string
+}
+
+interface LocalForageOptions extends LocalForageDbInstanceOptions {
+  driver?: LocalForageDriverType | LocalForageDriverType[]
+  size?: number
+  version?: number
+  description?: string
+}
+```
+
+### Examples
 
 ```tsx
-// ./components/Container.tsx
 import React from 'react'
 
 interface ContainerProps {
@@ -29,6 +136,7 @@ interface ContainerProps {
 const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
     <LocalForageProvider
+      // localForage configuration
       config={{
         name: 'react-forage-website',
         storeName: 'examples',
@@ -40,6 +148,36 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
 }
 ```
 
-## useLocalForageState
+## useLocalForageContext
 
-Comming soon ...
+With [LocalForageProvider](#localforageprovider) , the context information of the storage configuration can be obtained through useLocalForageContext Hook. Generally, there is no need to actively use it, but in some cases, such as if you want to dropdown IndexedDB, you can operate it through the instance of the context.
+
+<LinkButton
+  secondary
+  href="https://localforage.github.io/localForage/#multiple-instances-dropinstance"
+  target="_blank"
+>
+  Drop Instance - localForage API
+</LinkButton>
+
+### Type Declarations
+
+```ts
+declare const useLocalForageContext: () => LocalForageContextProps
+```
+
+### Examples
+
+```tsx
+import React from 'react'
+
+const DropInstanceExample: React.FC = () => {
+  const { localforage } = useLocalForageContext()
+
+  return (
+    <Button variant="outline" onClick={() => localforage.dropInstance()}>
+      Drop Instance
+    </Button>
+  )
+}
+```

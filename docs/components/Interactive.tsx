@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import clsx from 'clsx'
-import { LocalForageProvider, useLocalForageState } from 'react-forage'
+import Link, { type LinkProps } from 'next/link'
+import {
+  LocalForageProvider,
+  useLocalForageContext,
+  useLocalForageState,
+} from 'react-forage'
 import { randomString } from '@bassist/utils'
+import { OpenNewWindowIcon, LinkIcon } from './Icons'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
@@ -13,7 +19,17 @@ const cls = {
   colWrapper: clsx('flex flex-col gap-2'),
 }
 
-export const SerializerExample = () => {
+export const DropInstanceExample: React.FC = () => {
+  const { localforage } = useLocalForageContext()
+
+  return (
+    <Button variant="outline" onClick={() => localforage.dropInstance()}>
+      Drop Instance
+    </Button>
+  )
+}
+
+export const SerializerExample: React.FC = () => {
   const [message, setMessage] = useLocalForageState<string | undefined>(
     'use-local-forage-state-demo-3',
     {
@@ -42,7 +58,7 @@ export const SerializerExample = () => {
   )
 }
 
-export const ArrayExample = () => {
+export const ArrayExample: React.FC = () => {
   const [value, setValue] = useLocalForageState<string[] | undefined>(
     'use-local-forage-state-demo-2',
     {
@@ -69,7 +85,7 @@ export const ArrayExample = () => {
   )
 }
 
-export const BasicExample = () => {
+export const BasicExample: React.FC = () => {
   const [message, setMessage] = useLocalForageState<string | undefined>(
     'use-local-forage-state-demo-1',
     {
@@ -124,4 +140,52 @@ export const ExampleWrapper: React.FC<ContainerProps> = ({ children }) => {
   )
 
   return <div className={cls}>{children}</div>
+}
+
+interface LinkButtonProps {
+  icon?: boolean
+  secondary?: boolean
+  href: LinkProps['href']
+  target?: '_blank'
+  children: React.ReactNode
+}
+
+export const LinkButton: React.FC<LinkButtonProps> = ({
+  icon = true,
+  secondary = false,
+  href,
+  target,
+  children,
+}) => {
+  const variant = secondary ? 'secondary' : 'default'
+
+  const isBlank = useMemo(() => {
+    return target === '_blank'
+  }, [target])
+
+  const rel = useMemo(() => {
+    return isBlank ? 'noreferrer' : undefined
+  }, [isBlank])
+
+  const currentIcon = useMemo(() => {
+    if (!icon) return null
+    return target ? (
+      <OpenNewWindowIcon className="mr-2" />
+    ) : (
+      <LinkIcon className="mr-2" />
+    )
+  }, [icon, target])
+
+  const cls = clsx({
+    'mr-2 mt-6': secondary,
+  })
+
+  return (
+    <Button asChild variant={variant} className={cls}>
+      <Link href={href} target={target} rel={rel}>
+        {currentIcon}
+        <span className="font-bold">{children}</span>
+      </Link>
+    </Button>
+  )
 }

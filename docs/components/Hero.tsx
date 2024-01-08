@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { WEBSITE_DESCRIPTION, WEBSITE_TITLE } from '../constants'
 import { useAppearance, useLogo } from '../hooks/data-hooks'
-import { Button } from './ui/button'
+import { LinkButton } from './Interactive'
 
 export const Hero: React.FC = () => {
   const { isDark } = useAppearance()
@@ -32,11 +31,9 @@ export const Hero: React.FC = () => {
 
       {apertureVisible && <div className="aperture" />}
 
-      <Button asChild>
-        <Link href="/getting-started">
-          <span className="font-bold">Get Started</span>
-        </Link>
-      </Button>
+      <LinkButton icon={false} href="/getting-started">
+        Get Started
+      </LinkButton>
     </div>
   )
 }
