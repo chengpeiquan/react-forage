@@ -6,6 +6,7 @@ import {
   ArrayExample,
   BasicExample,
   SerializerExample,
+  DropInstanceExample,
 } from '../components/Interactive'
 
 <Hero />
@@ -47,6 +48,14 @@ In the following example, state data will be stored in IndexedDB. You can switch
   You may not need the default `JSON.stringify` or `JSON.parse` to serialize
   string.
   <SerializerExample />
+</ExampleWrapper>
+
+### Drops store of the current instance
+
+<ExampleWrapper>
+  Please open the console to view the database changes of IndexedDB. When
+  invoked with no arguments, it drops the “store” of the current instance.
+  <DropInstanceExample />
 </ExampleWrapper>
 
 </ExampleList>

@@ -1,10 +1,29 @@
+import { LinkButton } from '../components/Interactive'
+
 # Getting Started
 
 The idea and part of the source code come from `useLocalStorageState` of [ahooks](https://ahooks.js.org/hooks/use-local-storage-state/) , and the usage is very similar. If you like the usage of ahooks, you will get started quickly.
 
 ## Usage
 
+For complete usage, please refer to the API documentation and source code of the demo component.
+
+<LinkButton secondary href="/api-reference">
+  API Reference
+</LinkButton>
+
+<LinkButton
+  secondary
+  href="https://github.com/chengpeiquan/react-forage/blob/main/docs/components/Interactive.tsx"
+  target="_blank"
+>
+  Source code of interactive demo
+</LinkButton>
+
+- Examples
+
 ```tsx
+import React from 'react'
 import { LocalForageProvider, useLocalForageState } from 'react-forage'
 
 const BasicExample = () => {
@@ -49,3 +68,7 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
   )
 }
 ```
+
+## Salute
+
+The internal Hooks logic largely refers to [ahooks](https://github.com/alibaba/hooks) , thank you very much!
