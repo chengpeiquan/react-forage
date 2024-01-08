@@ -1,5 +1,5 @@
 import localforage from 'localforage'
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useMemo } from 'react'
 import { type LocalForage } from './types'
 
 export interface LocalForageProviderProps {
@@ -21,7 +21,9 @@ export const LocalForageProvider: React.FC<LocalForageProviderProps> = ({
   config = {},
   children,
 }) => {
-  const instance = localforage.createInstance(config) as LocalForage
+  const instance = useMemo(() => {
+    return localforage.createInstance(config) as LocalForage
+  }, [config])
 
   return (
     <LocalForageContext.Provider
