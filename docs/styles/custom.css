@@ -24,6 +24,10 @@
   background-color: var(--code-block-bg) !important;
 }
 
+button:focus-visible {
+  box-shadow: none !important;
+}
+
 .luster {
   -webkit-mask-image: -webkit-linear-gradient(
     30deg,
