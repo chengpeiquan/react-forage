@@ -1,16 +1,11 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import { useConfig } from 'nextra-theme-docs'
 import { WEBSITE_HOST, WEBSITE_ORIGIN, WEBSITE_TITLE } from '../constants'
 
 export const Head: React.FC = () => {
-  const { route } = useRouter()
   const { title } = useConfig()
 
-  const socialCard =
-    route === '/' || !title
-      ? `${WEBSITE_ORIGIN}/og.jpg`
-      : `${WEBSITE_ORIGIN}/api/og?title=${title}`
+  const socialCard = `${WEBSITE_ORIGIN}/assets/og.jpg`
 
   return (
     <>
