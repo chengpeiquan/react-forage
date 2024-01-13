@@ -1,7 +1,7 @@
 export enum LocalForageDriverType {
   IndexedDB = 'asyncStorage',
-  WebSQL = 'localStorageWrapper',
-  LocalStorage = 'webSQLStorage',
+  WebSQL = 'webSQLStorage',
+  LocalStorage = 'localStorageWrapper',
 }
 
 /**
