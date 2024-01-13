@@ -3,12 +3,12 @@ import { useRouter } from 'next/router'
 import { REPO_URL, WEBSITE_TITLE } from './constants'
 import { Logo } from './components/Logo'
 import { Copyright } from './components/Copyright'
-import { useHead } from './hooks/data-hooks'
+import { Head } from './components/Head'
 
 export default {
   logo: <Logo />,
   gitTimestamp: () => null,
-  head: useHead,
+  head: () => <Head />,
   footer: {
     text: <Copyright />,
   },

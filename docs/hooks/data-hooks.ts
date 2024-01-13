@@ -1,8 +1,7 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { useTheme } from 'nextra-theme-docs'
 import { isServer } from '@bassist/utils'
 import { WEBSITE_LOGO_STARTSWITH } from '../constants'
-import { Head } from '../components/Head'
 
 export function useAppearance() {
   const { resolvedTheme } = useTheme()
@@ -23,8 +22,4 @@ export function useLogo() {
   return {
     logo,
   }
-}
-
-export function useHead() {
-  return <Head />
 }
