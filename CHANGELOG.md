@@ -1,3 +1,12 @@
+# [0.2.0](https://github.com/chengpeiquan/react-forage/compare/v0.1.0...v0.2.0) (2024-01-13)
+
+
+### Features
+
+* memorialize the localforage instance ([2fb3769](https://github.com/chengpeiquan/react-forage/commit/2fb37698a291ccb2ce49c45e0cb5c69b0d036bcc))
+
+
+
 # 0.1.0 (2024-01-07)
 
 

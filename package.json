@@ -1,6 +1,6 @@
 {
   "name": "react-forage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "LocalForage Hooks and Providers for React.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
   "license": "MIT",
