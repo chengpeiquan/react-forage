@@ -50,7 +50,7 @@ export function useHead() {
       <meta name="description" content={WEBSITE_DESCRIPTION} />
       <meta name="og:description" content={WEBSITE_DESCRIPTION} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={socialCard} />
+      <meta name="twitter:image:src" content={socialCard} />
       <meta name="twitter:site:domain" content={WEBSITE_HOST} />
       <meta name="twitter:url" content={WEBSITE_ORIGIN} />
       <meta
