@@ -1,6 +1,6 @@
 {
   "name": "react-forage",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "LocalForage Hooks and Providers for React.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
   "license": "MIT",
@@ -64,7 +64,9 @@
     "@bassist/commit": "^0.1.0",
     "@bassist/eslint": "^0.5.0",
     "@bassist/tsconfig": "^0.1.1",
+    "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.47",
     "conventional-changelog-cli": "^4.1.0",

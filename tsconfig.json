@@ -8,10 +8,10 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["node"],
+    "types": ["node", "vitest/globals"],
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "declaration": true
   },
-  "include": ["src/**/*", "scripts/**/*"],
+  "include": ["src/**/*", "scripts/**/*", "test/vitest-setup.ts"],
   "exclude": ["node_modules", "examples"]
 }
