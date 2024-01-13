@@ -1,16 +1,45 @@
-import React from 'react'
-import { useConfig } from 'nextra-theme-docs'
+import React, { useMemo } from 'react'
+import { useConfig, useTheme } from 'nextra-theme-docs'
+import { isServer } from '@bassist/utils'
 import {
   WEBSITE_DESCRIPTION,
   WEBSITE_HOST,
+  WEBSITE_LOGO_STARTSWITH,
   WEBSITE_ORIGIN,
   WEBSITE_TITLE,
 } from '../constants'
 
-export const Head: React.FC = () => {
+export function useAppearance() {
+  const { resolvedTheme } = useTheme()
+
+  const isDark = useMemo(() => {
+    if (isServer) return true
+    return resolvedTheme === 'dark'
+  }, [resolvedTheme])
+
+  return {
+    isDark,
+  }
+}
+
+export function useLogo() {
+  const logo = `/assets/${WEBSITE_LOGO_STARTSWITH}.png`
+
+  return {
+    logo,
+  }
+}
+
+export function useHead() {
   const { title } = useConfig()
+  const { isDark } = useAppearance()
 
   const socialCard = `${WEBSITE_ORIGIN}/assets/og.jpg`
+
+  const favicon = useMemo(() => {
+    if (isDark) return '/favicon-dark.ico'
+    return '/favicon.ico'
+  }, [isDark])
 
   return (
     <>
@@ -30,12 +59,7 @@ export const Head: React.FC = () => {
       />
       <meta name="og:image" content={socialCard} />
       <meta name="apple-mobile-web-app-title" content={WEBSITE_TITLE} />
-      <link rel="icon" href="/favicon.ico" />
-      <link
-        rel="icon"
-        href="/favicon-dark.ico"
-        media="(prefers-color-scheme: dark)"
-      />
+      <link rel="icon" href={favicon} />
     </>
   )
 }
