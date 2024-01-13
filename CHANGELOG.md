@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/chengpeiquan/react-forage/compare/v0.2.0...v0.2.1) (2024-01-13)
+
+
+### Bug Fixes
+
+* **types:** error enum value ([66363dc](https://github.com/chengpeiquan/react-forage/commit/66363dcf21334b695f545fa6cfcb59459ea496f6))
+
+
+
 # [0.2.0](https://github.com/chengpeiquan/react-forage/compare/v0.1.0...v0.2.0) (2024-01-13)
 
 
