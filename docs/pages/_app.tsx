@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { createBaiduAnalytics } from '@web-analytics/core'
 import { BAIDU_ANALYTICS_ID } from '../constants'

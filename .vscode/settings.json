@@ -6,8 +6,10 @@
     "INDEXEDDB",
     "localforage",
     "LOCALSTORAGE",
+    "lucide",
     "nextra",
     "Pageview",
+    "tailwindcss",
     "tsup",
     "WEBSQL"
   ]

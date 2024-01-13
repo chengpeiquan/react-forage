@@ -113,7 +113,7 @@ importers:
         specifier: ^8.4.32
         version: 8.4.33
       tailwindcss:
-        specifier: ^3.3.6
+        specifier: ^3.4.1
         version: 3.4.1
 
 packages:
