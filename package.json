@@ -29,6 +29,7 @@
     "build:docs": "pnpm -F docs build",
     "gen:changelog": "tsx ./scripts/generate-changelog.mts",
     "gen:release": "tsx ./scripts/generate-release.mts",
+    "test": "vitest",
     "lint": "eslint .",
     "format": "prettier --write .",
     "up": "npx npm-check-updates -u",
@@ -63,17 +64,21 @@
     "@bassist/commit": "^0.1.0",
     "@bassist/eslint": "^0.5.0",
     "@bassist/tsconfig": "^0.1.1",
+    "@testing-library/react": "^14.1.2",
     "@types/node": "^20.10.6",
     "@types/react": "^18.2.47",
     "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.56.0",
+    "happy-dom": "^13.0.4",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.1",
+    "react-test-renderer": "^18.2.0",
     "tsup": "^8.0.1",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
