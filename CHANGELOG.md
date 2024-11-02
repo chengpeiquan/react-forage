@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/chengpeiquan/react-forage/compare/v0.2.1...v0.2.2) (2024-11-02)
+
+
+### Bug Fixes
+
+* fix: removes dependency on react ([615b258](https://github.com/chengpeiquan/react-forage/commit/615b258710e7f94dac36e298a60f3fead679a7aa))
+
+
+
 ## [0.2.1](https://github.com/chengpeiquan/react-forage/compare/v0.2.0...v0.2.1) (2024-01-13)
 
 
