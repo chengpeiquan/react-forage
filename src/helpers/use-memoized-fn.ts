@@ -1,6 +1,6 @@
 // https://github.com/alibaba/hooks/blob/master/packages/hooks/src/useMemoizedFn/index.ts
-import { useMemo, useRef } from 'react'
 import { isDevRuntime, isTestRuntime } from '@bassist/utils'
+import { useMemo, useRef } from 'react'
 
 type noop = (this: any, ...args: any[]) => any
 
