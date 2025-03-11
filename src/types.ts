@@ -5,11 +5,10 @@ export enum LocalForageDriverType {
 }
 
 /**
- * Since some types are not directly exported,
- * So copy types from `typing` and export it in this package.
- * This is true for the following types.
+ * Since some types are not directly exported, So copy types from `typing` and
+ * export it in this package. This is true for the following types.
  *
- * @description The original `driver` is `string`, replaced here with `LocalForageDriverType`
+ * The original `driver` is `string`, replaced here with `LocalForageDriverType`
  *
  * @see https://github.com/localForage/localForage/blob/1.10.0/typings/localforage.d.ts
  */
@@ -113,8 +112,11 @@ export interface LocalForage extends LocalForageDbMethods {
   INDEXEDDB: string
 
   /**
-   * Set and persist localForage options. This must be called before any other calls to localForage are made, but can be called after localForage is loaded.
-   * If you set any config values with this method they will persist after driver changes, so you can call config() then setDriver()
+   * Set and persist localForage options. This must be called before any other
+   * calls to localForage are made, but can be called after localForage is
+   * loaded. If you set any config values with this method they will persist
+   * after driver changes, so you can call config() then setDriver()
+   *
    * @param {LocalForageOptions} options?
    */
   config(options: LocalForageOptions): boolean
@@ -122,8 +124,9 @@ export interface LocalForage extends LocalForageDbMethods {
   config(): LocalForageOptions
 
   /**
-   * Create a new instance of localForage to point to a different store.
-   * All the configuration options used by config are supported.
+   * Create a new instance of localForage to point to a different store. All the
+   * configuration options used by config are supported.
+   *
    * @param {LocalForageOptions} options
    */
   createInstance(options: LocalForageOptions): LocalForage
@@ -132,6 +135,7 @@ export interface LocalForage extends LocalForageDbMethods {
 
   /**
    * Force usage of a particular driver or drivers, if available.
+   *
    * @param {string} driver
    */
   setDriver(
@@ -148,6 +152,7 @@ export interface LocalForage extends LocalForageDbMethods {
 
   /**
    * Return a particular driver
+   *
    * @param {string} driver
    */
   getDriver(driver: LocalForageDriverType): Promise<LocalForageDriver>
